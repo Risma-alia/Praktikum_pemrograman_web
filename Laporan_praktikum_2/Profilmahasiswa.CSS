@@ -1,0 +1,81 @@
+/* Atur halaman utama */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #dbeafe, #fce7f3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Kartu profil */
+.card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    text-align: center;
+    width: 360px;
+}
+
+/* Judul besar */
+h1 {
+    font-size: 24px;
+    color: #1e3a8a;
+    margin-bottom: 15px;
+}
+
+/* Nama */
+h2 {
+    font-size: 20px;
+    color: #4f46e5;
+    margin-bottom: 10px;
+}
+
+/* Deskripsi */
+.deskripsi {
+    font-size: 15px;
+    color: #374151;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* Subjudul hobi */
+h3 {
+    font-size: 18px;
+    color: #059669;
+    margin-bottom: 10px;
+}
+
+/* Daftar hobi */
+ul {
+    list-style-type: circle;
+    padding: 0;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+ul li {
+    background: #f0fdf4;
+    margin: 5px 0;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: #065f46;
+}
+
+/* Tombol */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #2563eb;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    background: #1d4ed8;
+}
