@@ -1,0 +1,48 @@
+/* Styling Kustom untuk Profil Instagram */
+
+body {
+    background-color: #fafafa;
+}
+
+/* 1. Foto Profil */
+.profile-img {
+    width: 120px;        /* ukuran kecil, bisa 80–150px sesuai selera */
+    height: 120px;       /* biar proporsional sama dengan width */
+    object-fit: cover;   /* biar isi foto pas */
+    border-radius: 50%;  /* bikin bulat sempurna */
+}
+
+/* 2. Feed: Membuat Postingan Gambar Menjadi Persegi (1:1 Aspect Ratio) */
+.feed-post-container {
+    /* Teknik agar container selalu persegi */
+    width: 100%;
+    padding-top: 100%; /* Padding-top 100% dari lebar parent untuk membuat tinggi sama dengan lebar */
+    position: relative; /* Diperlukan untuk menempatkan gambar secara absolut */
+    overflow: hidden; /* Mengamankan gambar agar tidak melebihi container */
+}
+
+.feed-img {
+    position: absolute; /* Posisikan gambar di dalam container */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Penting! Memastikan gambar mengisi penuh container tanpa terdistorsi */
+    display: block;
+}
+
+/* Opsional: Efek hover pada postingan */
+.feed-post-container:hover {
+    opacity: 0.8;
+    transition: opacity 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+/* Penyesuaian Grid: col-md-4 digunakan untuk 3 kolom di layar >768px (Tablet besar) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    /* Feed 3 kolom di Tablet (col-md-4) */
+}
+
+@media (min-width: 992px) {
+    /* Feed 4 kolom di Desktop (col-lg-3) */
+}
