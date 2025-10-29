@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Input Mahasiswa</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; }
+        .main-container { display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap; }
+        .form-container { 
+            background-color: white; 
+            padding: 40px; 
+            border: 3px solid #333; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+            flex: 1; 
+            min-width: 300px; 
+        }
+        .table-container { 
+            background-color: white; 
+            padding: 20px; 
+            border: 2px solid #333; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+            flex: 1;
+            min-width: 400px; 
+        }
+        label { display: block; margin: 15px 0 5px; font-weight: bold; }
+        input, select { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px; }
+        button { padding: 12px 24px; background-color: #333; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        button:hover { background-color: #555; }
+        table { width: 100%; border-collapse: collapse; background-color: white; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        #message { margin-top: 10px; padding: 10px; background-color: #e7f3e7; color: #2e7d32; border-radius: 5px; display: none; }
+    </style>
+</head>
+<body>
+    <h1>Input Data</h1>
+    
+    <div class="main-container">
+        <div class="form-container">
+            <form id="studentForm">
+                <label for="nama">NAMA LENGKAP:</label>
+                <input type="text" id="nama" placeholder="masukkan nama" required>
+                
+                <label for="nim">NIM:</label>
+                <input type="text" id="nim" placeholder="20210001" required>
+                
+                <label for="semester">SEMESTER:</label>
+                <select id="semester" required>
+                    <option value="">Pilih Semester</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                </select>
+                
+                <label for="prodi">PROGRAM STUDI:</label>
+                <select id="prodi" required>
+                    <option value="">Pilih Program Studi</option>
+                    <option value="TI">Teknik informatika</option>
+                    <option value="TekSip">Teknik Sipil</option>
+                    <option value="Ekonomi">Ekonomi</option>
+                    <option value="Psikologi">Psikologi</option>
+                    <option value="Kedokteran">Kedokteran</option>
+                    <option value="Hukum">Hukum</option>
+                </select>
+                
+                <label for="email">EMAIL:</label>
+                <input type="email" id="email" placeholder="email@example.com" required>
+                
+                <button type="submit">kirim data</button>
+            </form>
+            
+            <div id="message">Data berhasil dikirim! Periksa konsol untuk detail.</div>
+        </div>
+        
+        <div class="table-container">
+            <h2>Table Mahasiswa</h2>
+            <table id="studentTable">
+                <thead>
+                    <tr>
+                        <th>NO</th>
+                        <th>NAMA</th>
+                        <th>INFO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data akan ditambahkan di sini -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script>
+        const form = document.getElementById('studentForm');
+        const message = document.getElementById('message');
+        const tableBody = document.querySelector('#studentTable tbody');
+        let rowNumber = 1;
+        
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Ambil nilai dari form
+            const nama = document.getElementById('nama').value;
+            const semester = document.getElementById('semester').value;
+            const prodi = document.getElementById('prodi').value;
+            
+            // Gabungkan info (Semester, Program Studi)
+            const info = `Semester: ${semester},
+            Program Studi: ${prodi}`;
+            
+            // Buat objek data
+            const studentData = { nama, nim, semester, prodi, email };
+            
+            // Tampilkan di konsol
+            console.log('Data Mahasiswa:', studentData);
+            
+            // Tampilkan pesan informasi pengiriman
+            message.style.display = 'block';
+            setTimeout(() => message.style.display = 'none', 3000);
+            
+            // Tambahkan ke tabel
+            const row = tableBody.insertRow();
+            row.insertCell(0).textContent = rowNumber++;
+            row.insertCell(1).textContent = nama;
+            row.insertCell(2).textContent = info; 
+            
+            // Reset form
+            form.reset();
+        });
+    </script>
+</body>
+</html>
