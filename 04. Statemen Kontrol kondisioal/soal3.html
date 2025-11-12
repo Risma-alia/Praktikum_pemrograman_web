@@ -1,0 +1,24 @@
+<html>
+<head>
+    <title>Hitung Upah Karyawan Berdasarkan Golongan</title>
+</head>
+<body>
+    <h2>Form Perhitungan Upah Karyawan</h2>
+
+    <form action="soal3proses.php" method="post">
+        <label>Masukkan jumlah jam kerja selama 1 minggu:</label><br>
+        <input type="number" name="jam" min="0" required><br><br>
+
+        <label>Pilih Golongan Karyawan:</label><br>
+        <select name="golongan" required>
+            <option value="">-- Pilih Golongan --</option>
+            <option value="A">Golongan A</option>
+            <option value="B">Golongan B</option>
+            <option value="C">Golongan C</option>
+            <option value="D">Golongan D</option>
+        </select><br><br>
+
+        <input type="submit" value="Hitung Upah">
+    </form>
+</body>
+</html>
